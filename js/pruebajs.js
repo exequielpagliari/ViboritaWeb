@@ -7,13 +7,11 @@ let player = {
     movement: 1,
 
     refrescar: function (positionX,positionY) {
-        console.log(player.positionX)
-        console.log(player.positionY)  
+
     
         let correctionXX = player.positionX * player.correctionX;
         let correctionYY = player.positionY * - player.correctionY;
-        console.log(correctionXX)
-        console.log(correctionYY)
+
         bodyPlayer.style.transform = `translate(${ correctionXX }px , ${ correctionYY}px)`} 
 
 
@@ -22,18 +20,23 @@ let player = {
 let apple = {
     body: document.querySelector(".apple"),
     positionX: 2,
-    positionY: 3,
+    positionY: 2,
     correctionY: -16,
     correctionX: 20,
     
+     checkApple:function() {
+        if (player.positionX == this.positionX && player.positionY == this.positionY) {this.positionX = randomNumber(); this.positionY = randomNumber()}
+        apple.refrescar()
+    },
+
+
+
     refrescar: function (positionX,positionY) {
-        console.log(apple.positionX)
-        console.log(apple.positionY)  
+
     
         let correctionXX = apple.positionX * apple.correctionX;
         let correctionYY = apple.positionY * - apple.correctionY;
-        console.log(correctionXX)
-        console.log(correctionYY)
+
         bodyApple.style.transform = `translate(${ correctionXX }px , ${ correctionYY}px)`} 
 
     
@@ -52,8 +55,6 @@ var positionX = 0;
 
 
 
-/*apple.appleDraw(2,2)*/
-
 function checkKey(e) {
 
     e = e || window.event;
@@ -61,28 +62,28 @@ function checkKey(e) {
     if (e.keyCode == '38') {
         player.positionY = player.positionY - player.movement  //  up arrow
         player.refrescar()
-        checkApple()
-        apple.refrescar()
+        apple.checkApple()
+
     }
     else if (e.keyCode == '40') {
         player.positionY = player.positionY + player.movement  // down arrow
         player.refrescar()
-        checkApple()
-        apple.refrescar()
+        apple.checkApple()
+
 
     }
     else if (e.keyCode == '37') {
         player.positionX = player.positionX - player.movement;// left arrow
         player.refrescar()
-        checkApple()
-        apple.refrescar()
+        apple.checkApple()
+
 
     }
     else if (e.keyCode == '39') {
         player.positionX = player.positionX + player.movement; // right arrow
         player.refrescar()
-        checkApple()
-        apple.refrescar()
+        apple.checkApple()
+
 
     }
 
@@ -98,47 +99,14 @@ function checkBoardLimits() {
     
 }
 
-    function checkApple() {
-        if (player.positionX == apple.positionX && player.positionY == apple.positionY) {bodyApple.hidden = true}
+
+
+function randomNumber() {
+    number = Math.floor(Math.random() * 100);
+    while (number > 24) {
+        number = Math.floor(Math.random() * 100);
     }
-
-/*
-function refrescar(positionX,positionY) {
-    console.log(player.positionX)
-    console.log(player.positionY)  
-
-    let correctionXX = player.positionX * player.correctionX;
-    let correctionYY = player.positionY * - player.correctionY + 16;
-    console.log(correctionXX)
-    console.log(correctionYY)
-    bodyPlayer.style.transform = `translate(${ correctionXX }px , ${ correctionYY}px)`; 
-
-
-*/
-
-/*
-    if (applePoscX == playerPoscX) {apple.hidden = true}
-    apple.appleDraw(0,0)*/
-
-
-
-
-
-
-/*
-function refrescar(positionX,positionY) {
-    player.style.transform = `translate(${ positionX }px , ${ positionY }px)`;   
-    if (applePosc.left == playerPosc.left) {apple.hidden = true}
-    console.log(playerPosc)
-    console.log(applePosc)
-
-}
-*/
-
-/*
-function applehit(positionX,positionY) {
-    if (applePosc == playerPosc) {apple.hidden = true}
+    return number
     
-}
 
-*/
+}
