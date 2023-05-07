@@ -1,0 +1,56 @@
+body{
+    background-color: green;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.board{
+    background-color: burlywood;
+    width: 500px;
+    height: 500px;
+    top: 15%;
+    left: 25%;
+    position: absolute;
+
+}
+
+.player{
+    background-color: silver;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    top: -16px;
+    left: 0px;
+    transform: translate()
+    
+    
+}
+
+.body{
+    text-emphasis-color: brown;
+    position: relative;
+    top: 10%;
+    left: 20%;
+}
+
+
+.apple{
+    background-color: green;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    top: -12px;
+    left: 0px;
+
+    
+    
+}
+
+.bodyApple{
+    text-emphasis-color: blue;
+    position: relative;
+    top: 10%;
+    left: 20%;
+    text-size-adjust: .75rem;
+}
