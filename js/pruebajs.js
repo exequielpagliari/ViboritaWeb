@@ -6,13 +6,14 @@ let player = {
     correctionX: 20,
     movement: 1,
 
-    refrescar: function (positionX,positionY) {
+    refrescar: function (positionX, positionY) {
 
-    
+
         let correctionXX = player.positionX * player.correctionX;
         let correctionYY = player.positionY * - player.correctionY;
 
-        bodyPlayer.style.transform = `translate(${ correctionXX }px , ${ correctionYY}px)`} 
+        bodyPlayer.style.transform = `translate(${correctionXX}px , ${correctionYY}px)`
+    }
 
 
 }
@@ -23,24 +24,25 @@ let apple = {
     positionY: 2,
     correctionY: -16,
     correctionX: 20,
-    
-     checkApple:function() {
-        if (player.positionX == this.positionX && player.positionY == this.positionY) {this.positionX = randomNumber(); this.positionY = randomNumber()}
+
+    checkApple: function () {
+        if (player.positionX == this.positionX && player.positionY == this.positionY) { this.positionX = randomNumber(); this.positionY = randomNumber() }
         apple.refrescar()
     },
 
 
 
-    refrescar: function (positionX,positionY) {
+    refrescar: function (positionX, positionY) {
 
-    
+
         let correctionXX = apple.positionX * apple.correctionX;
         let correctionYY = apple.positionY * - apple.correctionY;
 
-        bodyApple.style.transform = `translate(${ correctionXX }px , ${ correctionYY}px)`} 
+        bodyApple.style.transform = `translate(${correctionXX}px , ${correctionYY}px)`
+    }
 
-    
-    
+
+
 }
 
 const bodyPlayer = document.querySelector(".player");
@@ -50,6 +52,11 @@ document.onkeydown = checkKey;
 var prevButton = document.getElementById("slide-arrow-prev");
 
 var nextButton = document.getElementById("slide-arrow-next");
+
+
+var upButton = document.getElementById("slide-arrow-up");
+
+var downButton = document.getElementById("slide-arrow-down");
 
 var positionY = 0;
 var positionX = 0;
@@ -94,18 +101,34 @@ function checkKey(e) {
 
 nextButton.addEventListener("click", () => {
 
-  player.positionX = player.positionX + player.movement;// left arrow
-        player.refrescar()
-        apple.checkApple()
+    player.positionX = player.positionX + player.movement;// left arrow
+    player.refrescar()
+    apple.checkApple()
 
 });
 
 prevButton.addEventListener("click", () => {
 
-  player.positionX = player.positionX - player.movement; // right arrow
-        player.refrescar()
-        apple.checkApple()
+    player.positionX = player.positionX - player.movement; // right arrow
+    player.refrescar()
+    apple.checkApple()
 });
+
+upButton.addEventListener("click", () => {
+
+    player.positionY = player.positionY - player.movement  //  up arrow
+    player.refrescar()
+    apple.checkApple()
+});
+
+
+downButton.addEventListener("click", () => {
+
+    player.positionY = player.positionY + player.movement  // down arrow
+    player.refrescar()
+    apple.checkApple()
+});
+
 
 
 
@@ -116,7 +139,7 @@ function checkBoardLimits() {
         player.refrescar()
     }
 
-    
+
 }
 
 
@@ -127,6 +150,6 @@ function randomNumber() {
         number = Math.floor(Math.random() * 100);
     }
     return number
-    
+
 
 }

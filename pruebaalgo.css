@@ -40,7 +40,7 @@ body{
 
     position: absolute;
 
-    top: 35%;
+    top: 50%;
 
     width: auto;
 
@@ -95,6 +95,25 @@ body{
     right: 0;
 
     z-index: 20;
+
+}
+
+#slide-arrow-up {
+
+    right: 50%;
+    top: 5px;
+    z-index: 20;
+    rotate: 90deg;
+
+}
+
+
+#slide-arrow-down {
+
+    right: 50%;
+    top: calc(100% - 25px) ;
+    z-index: 20;
+    rotate: 90deg;
 
 }
 
