@@ -47,7 +47,9 @@ const bodyPlayer = document.querySelector(".player");
 const bodyApple = document.querySelector(".apple");
 apple.refrescar()
 document.onkeydown = checkKey;
+var prevButton = document.getElementById("slide-arrow-prev");
 
+var nextButton = document.getElementById("slide-arrow-next");
 
 var positionY = 0;
 var positionX = 0;
@@ -88,6 +90,24 @@ function checkKey(e) {
     }
 
 }
+
+
+nextButton.addEventListener("click", () => {
+
+  player.positionX = player.positionX - player.movement;// left arrow
+        player.refrescar()
+        apple.checkApple()
+
+});
+
+prevButton.addEventListener("click", () => {
+
+  player.positionX = player.positionX + player.movement; // right arrow
+        player.refrescar()
+        apple.checkApple()
+});
+
+
 
 function checkBoardLimits() {
     if (player.positionX > 25 || player.positionX < 0 || player.positionY > 0 || player.positionY < -25) {
