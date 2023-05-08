@@ -94,7 +94,7 @@ function checkKey(e) {
 
 nextButton.addEventListener("click", () => {
 
-  player.positionX = player.positionX - player.movement;// left arrow
+  player.positionX = player.positionX + player.movement;// left arrow
         player.refrescar()
         apple.checkApple()
 
@@ -102,7 +102,7 @@ nextButton.addEventListener("click", () => {
 
 prevButton.addEventListener("click", () => {
 
-  player.positionX = player.positionX + player.movement; // right arrow
+  player.positionX = player.positionX - player.movement; // right arrow
         player.refrescar()
         apple.checkApple()
 });
