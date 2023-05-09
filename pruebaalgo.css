@@ -8,12 +8,14 @@ body{
     
 }
 
-
+.main{
+    display: flex;
+}
 
 .board{
     background-color: burlywood;
-    width: 500px;
-    height: 500px;
+    width: 320px;
+    height: 320px;
     margin: auto;
     position: absolute;
     float: center;
@@ -45,7 +47,7 @@ body{
 
     position: absolute;
 
-    top: 50%;
+    top: calc(50% - 16px);
 
     width: auto;
 
@@ -105,8 +107,8 @@ body{
 
 #slide-arrow-up {
 
-    right: 50%;
-    top: 5px;
+    right: calc(50% - 16px);
+    top: 6px;
     z-index: 20;
     rotate: 90deg;
 
@@ -115,8 +117,8 @@ body{
 
 #slide-arrow-down {
 
-    right: 50%;
-    top: calc(100% - 25px) ;
+    right: calc(50% - 16px);
+    top: calc(100% - 26px) ;
     z-index: 20;
     rotate: 90deg;
 

@@ -146,7 +146,7 @@ function checkBoardLimits() {
 
 function randomNumber() {
     number = Math.floor(Math.random() * 100);
-    while (number > 24) {
+    while (number > 15) {
         number = Math.floor(Math.random() * 100);
     }
     return number
