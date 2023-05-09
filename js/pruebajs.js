@@ -60,8 +60,10 @@ var downButton = document.getElementById("slide-arrow-down");
 
 var positionY = 0;
 var positionX = 0;
-
-
+var tiem = 0;
+var direction = 0
+var interval = 1000
+setInterval(tiempo, interval);
 
 
 function checkKey(e) {
@@ -69,29 +71,25 @@ function checkKey(e) {
     e = e || window.event;
 
     if (e.keyCode == '38') {
-        player.positionY = player.positionY - player.movement  //  up arrow
-        player.refrescar()
-        apple.checkApple()
+        direction = 2
+
 
     }
     else if (e.keyCode == '40') {
-        player.positionY = player.positionY + player.movement  // down arrow
-        player.refrescar()
-        apple.checkApple()
+        direction = 3
+
 
 
     }
     else if (e.keyCode == '37') {
-        player.positionX = player.positionX - player.movement;// left arrow
-        player.refrescar()
-        apple.checkApple()
+        direction = 2
+
 
 
     }
     else if (e.keyCode == '39') {
-        player.positionX = player.positionX + player.movement; // right arrow
-        player.refrescar()
-        apple.checkApple()
+        direction = 0
+
 
 
     }
@@ -101,48 +99,63 @@ function checkKey(e) {
 
 nextButton.addEventListener("click", () => {
 
-    player.positionX = player.positionX + player.movement;// left arrow
-    player.refrescar()
-    apple.checkApple()
+
+    direction = 0
 
 });
 
 prevButton.addEventListener("click", () => {
 
-    player.positionX = player.positionX - player.movement; // right arrow
-    player.refrescar()
-    apple.checkApple()
+    direction = 1
+
 });
 
 upButton.addEventListener("click", () => {
 
-    player.positionY = player.positionY - player.movement  //  up arrow
-    player.refrescar()
-    apple.checkApple()
+    direction = 2
+
 });
 
 
 downButton.addEventListener("click", () => {
 
-    player.positionY = player.positionY + player.movement  // down arrow
-    player.refrescar()
-    apple.checkApple()
+
+    direction = 3
 });
 
 
 
-
-function checkBoardLimits() {
-    if (player.positionX > 25 || player.positionX < 0 || player.positionY > 0 || player.positionY < -25) {
-
-    } else {
-        player.refrescar()
+function tiempo() {
+    switch (direction) {
+        case 0:
+            player.positionX = player.positionX + player.movement;// left arrow
+            break;
+        case 1:
+            player.positionX = player.positionX - player.movement; // right arrow
+            break;
+        case 2:
+            player.positionY = player.positionY - player.movement  //  up arrow
+            break;
+        case 3:
+            player.positionY = player.positionY + player.movement  // down arrow
+            break;
     }
+    checkBoardLimits()
+    player.refrescar()
+    apple.checkApple()
+    
+}
+
+/*
+function checkBoardLimits() {
+    if (!(player.positionX > 14 || player.positionX < 0 || player.positionY > 0 || player.positionY < -14)) {
+        interval = 0
+    } 
 
 
 }
 
-
+*/
 
 function randomNumber() {
     number = Math.floor(Math.random() * 100);
