@@ -140,10 +140,10 @@ function tiempo() {
             player.positionY = player.positionY + player.movement  // down arrow
             break;
     }
-    checkBoardLimits()
+
     player.refrescar()
     apple.checkApple()
-    
+
 }
 
 /*
