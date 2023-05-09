@@ -82,7 +82,7 @@ function checkKey(e) {
 
     }
     else if (e.keyCode == '37') {
-        direction = 2
+        direction = 1
 
 
 
